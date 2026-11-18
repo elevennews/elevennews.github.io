@@ -1,0 +1,81 @@
+/* Creative Knowledge AOL Box — responsive article directory */
+:root {
+  color-scheme: light;
+  --ink: #17233b;
+  --muted: #66738a;
+  --line: #e4e9f1;
+  --paper: #ffffff;
+  --canvas: #f5f7fb;
+  --accent: #3157c8;
+  --accent-soft: #edf2ff;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.6;
+}
+a { color: inherit; }
+.container { width: min(100% - 40px, 960px); margin-inline: auto; }
+.site-header { background: var(--paper); border-bottom: 1px solid var(--line); }
+.header-inner, .brand, .footer-inner {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.header-inner { min-height: 72px; gap: 20px; }
+.brand { justify-content: flex-start; gap: 12px; text-decoration: none; font-weight: 750; letter-spacing: -.02em; }
+.brand-mark {
+  display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px;
+  background: var(--accent); color: white; font-size: 13px; font-weight: 800;
+}
+.header-link, .site-footer a { color: var(--accent); text-decoration: none; font-size: .9rem; font-weight: 650; }
+.header-link:hover, .site-footer a:hover { text-decoration: underline; }
+.hero {
+  margin: 34px 0 28px; padding: clamp(28px, 6vw, 52px);
+  border: 1px solid var(--line); border-radius: 22px;
+  background: linear-gradient(135deg, #fff 0%, #f0f4ff 100%);
+}
+.eyebrow { margin: 0 0 10px; color: var(--accent); font-size: .72rem; font-weight: 800; letter-spacing: .13em; }
+h1 { max-width: 700px; margin: 0; font-size: clamp(2rem, 5vw, 3.25rem); line-height: 1.12; letter-spacing: -.045em; }
+.hero-copy { max-width: 650px; margin: 18px 0 22px; color: var(--muted); font-size: 1.05rem; }
+.hero-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; color: var(--muted); font-size: .88rem; }
+.hero-meta strong, .count { padding: 5px 11px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+.articles-section { padding: 12px 0 34px; }
+.section-heading { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
+.section-heading .eyebrow { margin-bottom: 4px; }
+h2 { margin: 0; font-size: clamp(1.35rem, 3vw, 1.8rem); letter-spacing: -.025em; }
+.count { white-space: nowrap; font-size: .8rem; font-weight: 700; }
+.article-list {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  margin: 0; padding: 0; list-style: none; counter-reset: item;
+}
+.article-card {
+  min-width: 0; display: flex; align-items: center; gap: 12px;
+  padding: 15px 16px; border: 1px solid var(--line); border-radius: 13px;
+  background: var(--paper); transition: border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+.article-card:hover { border-color: #b8c7f5; transform: translateY(-2px); box-shadow: 0 8px 22px #253b6810; }
+.article-number { flex: 0 0 28px; color: #8793a8; font-size: .75rem; font-weight: 750; font-variant-numeric: tabular-nums; }
+.article-card a { flex: 1; color: var(--ink); text-decoration: none; font-size: .93rem; font-weight: 650; line-height: 1.45; }
+.article-card a:hover { color: var(--accent); }
+.article-arrow { color: #9aa5b8; font-size: 1rem; }
+.notice { margin: 6px 0 42px; padding: 22px 24px; border-left: 3px solid var(--accent); border-radius: 8px; background: #fff; }
+.notice h2 { font-size: 1.05rem; }
+.notice p { margin: 7px 0 0; color: var(--muted); font-size: .9rem; }
+.site-footer { border-top: 1px solid var(--line); background: var(--paper); }
+.footer-inner { min-height: 68px; gap: 16px; color: var(--muted); font-size: .85rem; }
+@media (max-width: 680px) {
+  .container { width: min(100% - 28px, 960px); }
+  .header-inner { min-height: 64px; }
+  .brand { font-size: .88rem; }
+  .header-link { max-width: 120px; text-align: right; font-size: .78rem; }
+  .hero { margin-top: 20px; border-radius: 16px; }
+  .article-list { grid-template-columns: 1fr; }
+  .article-card { padding: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; }
+}
